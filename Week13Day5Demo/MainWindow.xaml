@@ -1,0 +1,26 @@
+﻿<Window x:Class="Week13Day5Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Week13Day5Demo"
+        mc:Ignorable="d" Loaded="MainWindow_OnLoaded"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="100">
+        <ItemsControl x:Name="ItemsControlToDo">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,5" ShowGridLines="True" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Title}" FontSize="25" />
+                        <!--<TextBlock Grid.Column="1" Text="{Binding Completion}"  FontSize="25" />-->
+                        <ProgressBar Grid.Column="1" Minimum="0" MaxHeight="100" Value="{Binding Completion}"></ProgressBar>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
